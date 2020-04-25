@@ -16,4 +16,7 @@
 # Two B: Pull time taken
 
 # Two C/D TO DO after MVP created as they are more complicated: Calories/Costs
+# imports
+
+from bs4 import BeautifulSoup
 
