@@ -3,6 +3,12 @@
 
 from bs4 import BeautifulSoup
 import csv
-import urllib.request
+from urllib.request import Request, urlopen
 
-source = urllib.request.urlopen("bbcgoodfood.com/recipies")
+headers = {'User-Agent': 'Mozilla/5.0'}
+req = Request("https://bbcgoodfood.com/recipes",headers=headers)
+
+source= urlopen(req).read()
+soup = BeautifulSoup(source)
+print(soup.prettify())
+
