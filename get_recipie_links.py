@@ -17,3 +17,19 @@ soup = BeautifulSoup(source, features='html.parser')
 for link in soup.find_all('a'):
 	print(link.get('href'))
 
+# Now we must parse the above list to get links that lead to recipies.
+# Problem 1: Determine if a link is a recipie or not.
+# Problem 2: Given a link that DOESN'T lead to a recipie - should it be
+#            parsed in the hope that it may contain more recipie links?
+
+
+# Problem 1:
+# Inspect link:
+def is_link_recipie(link):
+    pass
+
+print("hungry? Y/N")
+x = input()
+print(x)
+
+
