@@ -19,4 +19,12 @@
 # imports
 
 from bs4 import BeautifulSoup
+from urllib.request import Request, urlopen
+
+headers={'User-Agent': 'Mozilla/5.0'}
+req = Request('https://www.bbcgoodfood.com/recipes/chocolate-fudge-sprinkle-crinkle-biscuits', headers=headers)
+source=urlopen(req).read()
+
+soup = BeautifulSoup(source)
+print(soup.prettify())
 
