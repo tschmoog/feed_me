@@ -26,5 +26,6 @@ req = Request('https://www.bbcgoodfood.com/recipes/chocolate-fudge-sprinkle-crin
 source=urlopen(req).read()
 
 soup = BeautifulSoup(source)
-print(soup.prettify())
+for ingredient in soup.find_all(class_="ingredients-list__item"):
+    print(ingredient)
 
