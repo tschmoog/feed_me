@@ -19,8 +19,15 @@ import itertools
 
 
 headers={'User-Agent': 'Mozilla/5.0'}
-req = Request('https://www.bbcgoodfood.com/recipes/chocolate-fudge-sprinkle-crinkle-biscuits', headers=headers)
+req = Request('https://www.bbcgoodfood.com/recipes/summer-couscous-salad', headers=headers)
 source=urlopen(req).read()
+
+# Two A: Pull Ingredient list
+# TO DO: Some recipes like this couscous one have more than one component: Scrape that info and compile
+# ALSO TO DO: Scrape Preparation Time
+# ALSO TO DO: Scrape calories and sugars etc
+
+# ALSO: Current method is weak at extracting the ingredients. The entire 'content' is in the 'content' field. parse that instead
 
 soup = BeautifulSoup(source, features='html.parser')
 for ingredient_and_info in soup.find_all(itemprop="ingredients"):
@@ -34,14 +41,19 @@ for ingredient_and_info in soup.find_all(itemprop="ingredients"):
    ingredient = "".join(ingredient)
    print(ingredient)
 
-print("done")
 
 print("Now to find the steps/ingredients")
 
-# Two A: Pull Ingredient list
 
-# Two B: Pull time taken
 
-# Two C/D TO DO after MVP created as they are more complicated: Calories/Costs
-# imports
+# Two B: Get steps to make recipe: 
+
+for recipe_step in soup.find_all(itemprop="recipeInstructions"):
+   print(recipe_step.text)
+
+
+
+# Get the link for the image of the recipe:
+
+print("done")
 
